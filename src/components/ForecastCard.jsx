@@ -8,7 +8,7 @@ const ForecastCard = ({ forecastData }) => {
       {forecastData.map((item, index) => (
         <div
           className="flex flex-col  justify-center items-center w-40 h-52 py-4 rounded-3xl 
-            my-4 bg-blue-300 shadow-xl lg:bg-green-100 lg:w-44 lg:shadow-2xl" key={index}>
+            my-4 bg-blue-300 shadow-xl lg:bg-green-100 lg:w-44 lg:shadow-2xl hover:scale-110 transition-transform duration-500" key={index}>
           <img
             src={item.icon}
             alt="weather condition icon"
@@ -16,7 +16,7 @@ const ForecastCard = ({ forecastData }) => {
           />
           <p className="text-4xl">{item.temp}&deg;C</p>
           <p className="text-xl">{item.time.match(/\d{2}:\d{2}:\d{2}/)[0]}</p>
-          <p className="lg:text-xl">{item.condition}</p>
+          <p className="lg:text-lg">{item.condition}</p>
         </div>
       ))}
     </div>

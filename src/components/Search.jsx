@@ -20,13 +20,13 @@ const Search = ({ search }) => {
         type="text"
         ref={inputRef}
         placeholder="city"
-        className="bg-white w-3/4 p-3 rounded-3xl lg:w-1/2"
+        className="bg-white w-3/4 p-3 focus:border focus:outline-none focus:border-blue-300 rounded-3xl shadow-xl lg:shadow-2xl lg:w-1/2"
       />
       <img
         src={search_icon}
         alt="search button"
         onClick={handleSearch}
-        className="bg-white rounded-3xl p-3 cursor-pointer"
+        className="bg-white rounded-3xl p-3 cursor-pointer  hover:scale-110 transition-transform duration-300 hover:bg-blue-100"
       />
     </div>
   );

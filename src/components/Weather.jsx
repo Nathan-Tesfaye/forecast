@@ -11,6 +11,7 @@ import Search from "./Search";
 const Weather = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [forecastData, setForecastData] = useState([]);
+  const [populationData, setPopulationData] = useState("");
 
   const allIcons = {
     "01d": clear_icon,
@@ -49,7 +50,7 @@ const Weather = () => {
         return;
       }
 
-      console.log(currentWeatherData);
+      // console.log(currentWeatherData);
       const icon = allIcons[currentWeatherData.weather[0].icon] || clear_icon;
       setWeatherData({
         description: currentWeatherData.weather[0].description,
@@ -72,6 +73,9 @@ const Weather = () => {
         return;
       }
 
+      const population = futureData.city.population;
+      setPopulationData(population);
+      console.log(population);
       // Filter for the next 5 3-hourly forecasts
       const nextFiveForecast = futureData.list.slice(0, 4).map((i) => ({
         time: i.dt_txt,
@@ -92,8 +96,8 @@ const Weather = () => {
   }, []);
   return (
     <div>
-      <Search search={search}/>
-      <CurrentCard weatherData={weatherData} />
+      <Search search={search} />
+      <CurrentCard weatherData={weatherData} population={populationData} />
       <ForecastCard forecastData={forecastData} />
     </div>
   );
