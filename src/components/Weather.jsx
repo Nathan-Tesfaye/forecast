@@ -6,6 +6,7 @@ import drizzle_icon from "../assets/drizzle.png";
 import rain_icon from "../assets/rain.png";
 import snow_icon from "../assets/snow.png";
 import ForecastCard from "./ForecastCard";
+import Search from "./Search";
 
 const Weather = () => {
   const [weatherData, setWeatherData] = useState(null);
@@ -48,7 +49,7 @@ const Weather = () => {
         return;
       }
 
-      // console.log(currentWeatherData);
+      console.log(currentWeatherData);
       const icon = allIcons[currentWeatherData.weather[0].icon] || clear_icon;
       setWeatherData({
         humidity: currentWeatherData.main.humidity,
@@ -78,7 +79,7 @@ const Weather = () => {
         icon: allIcons[i.weather[0].icon] || clear_icon,
       }));
 
-      // console.log(futureData);
+      console.log(futureData);
       setForecastData(nextFiveForecast);
     } catch (error) {
       console.error("Can't fetch data.");
@@ -88,10 +89,13 @@ const Weather = () => {
   useEffect(() => {
     search("Addis Ababa");
   }, []);
-  return <div>
-   <CurrentCard weatherData = {weatherData} />
-   <ForecastCard forecastData = {forecastData} />
-  </div>;
+  return (
+    <div>
+      <Search search={search}/>
+      <CurrentCard weatherData={weatherData} />
+      <ForecastCard forecastData={forecastData} />
+    </div>
+  );
 };
 
 export default Weather;
