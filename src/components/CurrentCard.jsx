@@ -8,7 +8,7 @@ const CurrentCard = ({weatherData}) => {
     return null;
   }
 
-  console.log(weatherData)
+  // console.log(weatherData)
   return (
     <div>
       <img src={weatherData.icon} alt="condition icon" />

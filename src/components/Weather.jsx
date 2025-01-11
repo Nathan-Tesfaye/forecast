@@ -5,6 +5,7 @@ import cloud_icon from "../assets/cloud.png";
 import drizzle_icon from "../assets/drizzle.png";
 import rain_icon from "../assets/rain.png";
 import snow_icon from "../assets/snow.png";
+import ForecastCard from "./ForecastCard";
 
 const Weather = () => {
   const [weatherData, setWeatherData] = useState(null);
@@ -72,7 +73,7 @@ const Weather = () => {
       // Filter for the next 5 3-hourly forecasts
       const nextFiveForecast = futureData.list.slice(0, 5).map((i) => ({
         time: i.dt_txt,
-        temperature: Math.floor(i.main.temp),
+        temp: Math.floor(i.main.temp),
         condition: i.weather[0].description,
         icon: allIcons[i.weather[0].icon] || clear_icon,
       }));
@@ -89,6 +90,7 @@ const Weather = () => {
   }, []);
   return <div>
    <CurrentCard weatherData = {weatherData} />
+   <ForecastCard forecastData = {forecastData} />
   </div>;
 };
 
