@@ -52,6 +52,7 @@ const Weather = () => {
       console.log(currentWeatherData);
       const icon = allIcons[currentWeatherData.weather[0].icon] || clear_icon;
       setWeatherData({
+        description: currentWeatherData.weather[0].description,
         humidity: currentWeatherData.main.humidity,
         windSpeed: currentWeatherData.wind.speed,
         temp: Math.floor(currentWeatherData.main.temp),
@@ -72,7 +73,7 @@ const Weather = () => {
       }
 
       // Filter for the next 5 3-hourly forecasts
-      const nextFiveForecast = futureData.list.slice(0, 5).map((i) => ({
+      const nextFiveForecast = futureData.list.slice(0, 4).map((i) => ({
         time: i.dt_txt,
         temp: Math.floor(i.main.temp),
         condition: i.weather[0].description,

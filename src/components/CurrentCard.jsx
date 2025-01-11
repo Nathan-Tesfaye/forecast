@@ -10,17 +10,24 @@ const CurrentCard = ({weatherData}) => {
 
   // console.log(weatherData)
   return (
-    <div>
-      <img src={weatherData.icon} alt="condition icon" />
-      <p>{weatherData.temp}&deg;C</p>
-      <p>{weatherData.location}</p>
-      <div>
-        <img src={humidity} alt="" />
-        <p>{weatherData.humidity}</p>
+    <div className='pb-7 text-semibold bg-blue-200'>
+      <div className='flex flex-col items-center'>
+        <img src={weatherData.icon} alt="condition icon"
+        className='size-1/4'/>
+        <p className='text-5xl'>{weatherData.temp}&deg;C</p>
+        <p className='text-3xl'>{weatherData.location}</p>
       </div>
-      <div>
-        <img src={wind} alt="" />
-        <p>{weatherData.windSpeed} km/hr</p>
+      <div className='flex justify-center gap-10 mt-5'>
+        <div className='flex  items-center gap-3'>
+          <img src={humidity} alt=""
+          className='bg-slate-500 rounded-full'/>
+          <p className='text-xl'>{weatherData.humidity}</p>
+        </div>
+        <div className='flex items-center gap-3'>
+          <img src={wind} alt=""
+          className='bg-slate-500 rounded-full'/>
+          <p>{weatherData.windSpeed} km/hr</p>
+        </div>
       </div>
     </div>
   )
