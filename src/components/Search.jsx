@@ -15,12 +15,12 @@ const Search = ({ search }) => {
   };
 
   return (
-    <div className='flex justify-center items-center gap-2 py-10 bg-blue-200'>
+    <div className='flex justify-center items-center gap-2 py-10 rounded-xl bg-green-100'>
       <input
         type="text"
         ref={inputRef}
         placeholder="city"
-        className="bg-white w-3/4 p-3  rounded-3xl"
+        className="bg-white w-3/4 p-3 rounded-3xl lg:w-1/2"
       />
       <img
         src={search_icon}
