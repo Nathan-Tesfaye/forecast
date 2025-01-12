@@ -75,7 +75,7 @@ const Weather = () => {
 
       const population = futureData.city.population;
       setPopulationData(population);
-      console.log(population);
+      // console.log(population);
       // Filter for the next 5 3-hourly forecasts
       const nextFiveForecast = futureData.list.slice(0, 4).map((i) => ({
         time: i.dt_txt,
@@ -84,7 +84,7 @@ const Weather = () => {
         icon: allIcons[i.weather[0].icon] || clear_icon,
       }));
 
-      console.log(futureData);
+      // console.log(futureData);
       setForecastData(nextFiveForecast);
     } catch (error) {
       console.error("Can't fetch data.");
